@@ -2,7 +2,7 @@
 .ONESHELL:
 SHELL=/bin/bash
 .SHELLFLAGS=-euc
-.DEFAULT_GOAL=$(word 1, $(MAKEFILE_LIST))
+.DEFAULT_GOAL=help
 .PHONY: show-makefile-list show-default-goal show-makecmdgoals show-variables
 
 show-makefile-list:
@@ -22,7 +22,14 @@ show-variables:
 
 #### your code hereafter
 
-#.PHONY: SHBANG test-shbang arg1
+.PHONY: help install
+
+help:
+	@echo
+	@echo Usage:
+	@echo 
+	@echo '    ' mksquashfs-zstd-1 "<name>.squashfs"
+	@echo 
 
 install: 
 	ln -sf $(abspath $(MAKEFILE_LIST)) /usr/local/bin/mksquashfs-zstd-1
